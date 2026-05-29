@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kỷ niệm 1 tháng yêu nhau ❤️</title>
+    <meta name="description" content="Một hành trình nhỏ nhìn lại 1 tháng chúng mình bên nhau.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- AOS CSS removed as we will use native IntersectionObserver -->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BGM Player -->
+    <audio id="bgm" loop>
+        <source
+            src="https://cdn.pixabay.com/download/audio/2022/05/16/audio_b287959081.mp3?filename=beautiful-and-romantic-piano-110486.mp3"
+            type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="hidden">
+        <i class="fas fa-compact-disc"></i>
+    </button>
+
+    <!-- Floating Notes Container -->
+    <div id="floating-notes-container"></div>
+
+    <!-- MAIN WRAPPER -->
+    <main id="app">
+
+        <!-- ================= SECTION 1: OPENING CINEMATIC ================= -->
+        <section id="s1-opening" class="screen active">
+            <div class="loading-container" id="loading-container">
+                <div class="typed-text-wrapper">
+                    <span id="loading-typed"></span>
+                </div>
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+            </div>
+
+            <div class="intro-container hidden" id="intro-container">
+                <div class="glowing-heart" id="glowing-heart">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h1 class="intro-title">Hế lô người quan trọng nhất của anh, em bé Vân Anh ❤️</h1>
+                <p class="intro-subtitle">Anh có thứ này muốn cho em iuu xem...</p>
+                <button class="btn-primary mt-20" id="btn-start">Bắt đầu hành trình</button>
+            </div>
+
+            <div class="easter-egg-popup hidden" id="easter-egg">
+                Anh yêu bé nhiều hơn em nghĩ ❤️
+            </div>
+        </section>
+
+        <!-- ================= SECTION 2: MINI GAME ================= -->
+        <section id="s2-minigame" class="screen hidden">
+            <div class="game-header">
+                <h2>Bắt tim trong 10 giây!</h2>
+                <div class="game-stats">
+                    <span class="timer">⏳ <span id="game-time">10</span>s</span>
+                    <span class="score">❤️ <span id="game-score">0</span></span>
+                </div>
+            </div>
+            <div id="game-area"></div>
+
+            <div class="game-result-modal hidden" id="game-result">
+                <h2 id="result-title"></h2>
+                <p id="result-msg"></p>
+                <button class="btn-primary mt-20" id="btn-next-to-timeline">Tiếp tục nào ❤️</button>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 3: TIMELINE ================= -->
+        <section id="s3-timeline" class="screen hidden scrollable">
+            <div class="section-title reveal">
+                <h2>Hành trình 1 tháng của chúng mình</h2>
+                <p>Những cột mốc đáng nhớ...</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-icon"><i class="fas fa-comments"></i></div>
+                    <div class="timeline-content">
+                        <span class="date">Ngày đầu tiên</span>
+                        <h3>Bắt đầu trò chuyện</h3>
+                        <p>Từ những tin nhắn rụt rè đầu tiên, không ngờ lại dính nhau đến bây giờ.</p>
+                        <div class="img-wrapper">
+                            <img src="assets/images/photo1.jpg" alt="Chat" class="timeline-img">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item right reveal">
+                    <div class="timeline-icon"><i class="fas fa-coffee"></i></div>
+                    <div class="timeline-content">
+                        <span class="date">Buổi hẹn đầu</span>
+                        <h3>Gặp gỡ & Rung động</h3>
+                        <p>Nụ cười của ẻm hôm đó đã đánh cắp trái tim a mất rùiii</p>
+                        <div class="img-wrapper">
+                            <img src="assets/images/photo2.jpg" alt="Date" class="timeline-img">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-icon"><i class="fas fa-moon"></i></div>
+                    <div class="timeline-content">
+                        <span class="date">Những đêm muộn</span>
+                        <h3>Thức khuya nhắn tin</h3>
+                        <p>Chẳng hiểu sao lại có nhiều chuyện để nói đến thế, quên cả ngủ hehe.</p>
+                        <div class="img-wrapper">
+                            <img src="assets/images/photo3.jpg" alt="Night" class="timeline-img">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item right reveal">
+                    <div class="timeline-icon"><i class="fas fa-laugh-squint"></i></div>
+                    <div class="timeline-content">
+                        <span class="date">Khoảnh khắc ngớ ngẩn</span>
+                        <h3>Cười vì những điều nhỏ bé</h3>
+                        <p>Ở bên em, anh luôn được là chính mình, vui vẻ và bình yên.</p>
+                        <div class="img-wrapper">
+                            <img src="assets/images/photo4.jpg" alt="Laugh" class="timeline-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-40 pb-40 reveal">
+                <button class="btn-primary" id="btn-next-to-quiz">Anh có vài câu hỏi cho em bé nè!</button>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 4: QUIZ ================= -->
+        <section id="s4-quiz" class="screen hidden flex-center relative">
+            <div class="quiz-container">
+                <div class="quiz-progress-wrap">
+                    <div class="quiz-progress-bar" id="quiz-progress"></div>
+                </div>
+                <div class="quiz-card" id="quiz-card">
+                    <h3 id="quiz-question">Câu hỏi load ở đây</h3>
+                    <div class="quiz-options" id="quiz-options">
+                        <!-- Options generated by JS -->
+                    </div>
+                </div>
+            </div>
+            <div id="quiz-sticker" class="quiz-sticker hidden"></div>
+        </section>
+
+        <!-- ================= SECTION 5: SURPRISE SLIDESHOW ================= -->
+        <section id="s5-slideshow" class="screen hidden flex-center bg-dark">
+            <div class="surprise-text" id="surprise-text">
+                <!-- Text injected by JS -->
+            </div>
+
+            <div class="slideshow-container hidden" id="polaroid-slider">
+                <!-- polaroids generated by JS -->
+            </div>
+
+            <button class="btn-primary hidden mt-20" style="position:absolute; bottom:40px; z-index: 10;"
+                id="btn-next-to-letter">Anh có một lá thư...</button>
+        </section>
+
+        <!-- ================= SECTION 6: LOVE LETTER ================= -->
+        <section id="s6-letter" class="screen hidden flex-center relative">
+            <div class="envelope-wrapper" id="envelope-wrapper">
+                <div class="envelope">
+                    <div class="front flap"></div>
+                    <div class="front pocket"></div>
+                    <div class="letter">
+                        <div class="letter-content">
+                            <span id="letter-typed"></span>
+                        </div>
+                    </div>
+                    <div class="heart-seal"><i class="fas fa-heart"></i></div>
+                </div>
+            </div>
+            <p class="envelope-hint" id="envelope-hint">Chạm vào trái tim để mở thư</p>
+
+            <button class="btn-primary hidden mt-20 z-10" id="btn-next-to-end"
+                style="position: absolute; bottom: 20px;">Và cuối cùng...</button>
+        </section>
+
+        <!-- ================= SECTION 7: ENDING ================= -->
+        <section id="s7-ending" class="screen hidden flex-center relative">
+            <div id="particles-js"></div>
+
+            <div class="ending-content z-10">
+                <h1 class="ending-title">Chúc mừng kỷ niệm<br>1 tháng 4 ngày yêu nhau ❤️</h1>
+                <p class="ending-subtitle">Đây mới chỉ là chương đầu tiên.<br>Anh mong sẽ còn rất nhiều tháng nữa cùng
+                    embe của anh.</p>
+
+                <div class="counter-box mt-20">
+                    <div class="counter-item">
+                        <span class="count-val" id="count-months">0</span>
+                        <span class="count-label">Tháng</span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="count-val" id="count-days">0</span>
+                        <span class="count-label">Ngày</span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="count-val" id="count-hours">0</span>
+                        <span class="count-label">Giờ</span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="count-val" id="count-mins">0</span>
+                        <span class="count-label">Phút</span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="count-val" id="count-secs">0</span>
+                        <span class="count-label">Giây</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Thư viện JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <!-- AOS removed -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
